@@ -1,11 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 
 
 const api = require('./API/router');
-const db = require('./models');
+// const db = require('./models');
 
 
 const app = express();
