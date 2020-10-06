@@ -1,4 +1,13 @@
+.navbar {
+    
+    background: inherit;
+    height: auto;
+    margin-top: -70px;
+    position: fixed;
+    z-index: 10;
+}
 
+/* 
 
 .dib2 {
     display: inline-block;
@@ -107,4 +116,4 @@
         padding-right: 4rem;
     }
 }
-
+ */
