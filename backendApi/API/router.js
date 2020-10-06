@@ -38,7 +38,7 @@ router.get('/leadboard/ranks', leadboardController.userRanks);
 
 
 // Quiz Page API
-router.post('/quiz/username', quizController.handleUsers);
+//router.post('/quiz/username', quizController.handleUsers);
 router.get('/quiz/questions', quizController.getQuestions);
 router.post('/quiz/submit', quizController.handleSubmits);
 
