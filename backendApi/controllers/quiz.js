@@ -6,6 +6,8 @@ const handleUsers = (req, res) => {
 
 const getQuestions = (req, res) => {
 
+    
+
 }
 
 const handleSubmits = (req, res) => {

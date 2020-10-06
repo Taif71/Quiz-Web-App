@@ -27,7 +27,9 @@ const quizController = require('../controllers/quiz');
 router.post('/admin/login', adminController.handleAdminLogin);
 router.post('/admin/register', adminController.handleAdminRegistration);
 router.post('/admin/submit', adminController.submitQuestions);
-router.put('/admin/update', adminController.updateQuestions);
+router.put('/admin/updateQuestion', adminController.updateQuestion);
+router.put('/admin/updateOption', adminController.updateOption);
+router.put('/admin/updateSolution', adminController.updateSolution);
 router.delete('/admin/delete', adminController.deleteQuestions);
 
 

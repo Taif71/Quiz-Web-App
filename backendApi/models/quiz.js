@@ -15,10 +15,10 @@ module.exports = (sequelize, DataTypes) => {
   };
   quiz.init({
     questions: DataTypes.STRING,
-    opt1: DataTypes.INTEGER,
-    opt2: DataTypes.INTEGER,
-    opt3: DataTypes.INTEGER,
-    opt4: DataTypes.INTEGER,
+    opt1: DataTypes.STRING,
+    opt2: DataTypes.STRING,
+    opt3: DataTypes.STRING,
+    opt4: DataTypes.STRING,
     solution: DataTypes.INTEGER
   }, {
     sequelize,
