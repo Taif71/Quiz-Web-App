@@ -41,6 +41,8 @@ const HomePage = () => {
                     params={particlesOptions}
                 /> 
                 <Option />
+
+
         </div>
     );
 }

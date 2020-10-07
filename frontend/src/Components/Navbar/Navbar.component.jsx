@@ -9,7 +9,7 @@ const Navbar = () => {
         
             
         <div className="navbar">
-            <header className="bg-black-90 fixed w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
+            <header className="bg-black-90  w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
             
             <nav className="f6 fw7 ttu tracked">
                 <Link className="link dim white dib2 mr3" to="/" title="Home">Home</Link>
