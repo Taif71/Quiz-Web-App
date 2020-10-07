@@ -2,6 +2,7 @@ import React from 'react';
 import Particles from 'react-particles-js';
 import './leadboard.styles.css';
 
+import Table from '../../Components/Table/Table.component';
 
 
 
@@ -42,7 +43,9 @@ const LeadBoard = () => {
         />
       
         
-        {/* <p>this is leadboard page</p> */}
+        <Table />
+        <br />
+        <br />
         </div>
     );
 }

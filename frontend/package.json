@@ -10,6 +10,7 @@
     "react": "^16.13.1",
     "react-component-countdown-timer": "^0.1.8",
     "react-dom": "^16.13.1",
+    "react-parallax-tilt": "^1.4.65",
     "react-particles-js": "^3.3.0",
     "react-quiz-component": "^0.3.6",
     "react-router-dom": "^5.2.0",

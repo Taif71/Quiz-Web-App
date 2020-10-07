@@ -8,7 +8,7 @@ import CountDown from '../CountDown/CountDown.component';
 const CountDownTimer = () => {
     return (
         <div>
-            <div className="mw7 center ph3 ph5-ns tc br2 pv5 bg-washed-green dark-green mb5">
+            <div className="mw7 center ph3 ph5-ns tc br2 pv5 bg-washed-green mb5 dark-green banner">
             {/* <article className="mw7 center ph3 ph5-ns tc br2 pv5 bg-washed-green dark-green mb5"> */}
                 <p className="fw6 f3 f2-ns lh-title mt0 ">
                 You have 10 minutes to submit this Quiz form.
