@@ -1,5 +1,7 @@
-/* .question {
-    border: 1px solid black;
-    position: relative;
-    top: 30px; left: 500px;
-} */
+.question {
+    background-color: #89fa9c;
+    width: 57%;
+    margin-left: 22%;
+   
+}
+

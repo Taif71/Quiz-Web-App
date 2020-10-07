@@ -1,0 +1,14 @@
+
+.particles {
+    /* everything remains exactly it is */
+  /* to make sure everything is in the background  */
+  top: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* to make sure everything is underneath the rest of our app we use z-index */
+  /* z-index you are allowed to use when you're using position fixed or absolute. It tells you what layer you want the image to be around */
+  z-index: -1;
+}

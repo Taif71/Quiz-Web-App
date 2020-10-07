@@ -1,61 +1,84 @@
 import React from 'react';
+import Quiz from 'react-quiz-component';
+import { quiz } from './quiz.js';
+
+
 
 import './question.styles.css';
 
-import QuizBg from '../QuizBg/QuizBg.component';
+// import QuizBg from '../QuizBg/QuizBg.component';
 
 
-const dummyData = "What is your name?";
+//const dummyData = "What is your name?";
 const Question = () => {
     return (
-        <div className="question fl w-100">
+        <div className="question">
             {/* <QuizBg /> */}
-            <h1>Quiz</h1>
-            <form>
-                <div className="fl w-100 pa2">
-                    <h2 className="tl pl7">Q1: {dummyData}</h2>                                    
-
-                        <div className="mv2 f6">
-                            
-
-                            <div class="mb2 mt4 f6">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked />
-                                    Option one is this and that—be sure to include why it's great
-                                </label>
-                            </div>
-
-                            <div class="mv2 f6">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" />
-                                    Option two can be something else and selecting it will deselect option one
-                                </label>
-                            </div>
-
-                            <div class="mv2 f6">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" />
-                                    Option two can be something else and selecting it will deselect option one
-                                </label>
-                            </div>
-
-                            <div class="mv2 f6">
-                                <label>
-                                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4" />
-                                    Option two can be something else and selecting it will deselect option one
-                                </label>
-                            </div>
-                            
-                </div> 
-                
-                </div>
-
-            </form>
-        
-        
-
+            <div className="ml7 center">
+            <Quiz quiz={quiz} />
+            </div>
+                        
         </div>
+
+
+            
     );
 }
 
 export default Question;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <h1>Quiz Title</h1> 
+//             <form>
+//                 <div className="">
+                    
+                      
+//                         <h2 className="">Q1: {dummyData}</h2>                                    
+//                         <div className="mv2 f6">     
+                    
+//                             <div class="mv2 f6">
+//                                 <input type="radio" name="option" id="optionsRadios2" value="option2" />
+//                                 <label className="ml3" for="option1">                                    
+//                                     Option two can be something else and selecting it will deselect option one
+//                                 </label>
+//                             </div>
+
+//                             <div class="mv2 f6">
+//                                 <input type="radio" name="option" id="optionsRadios2" value="option2" />
+//                                 <label className="ml3" for="option2">                                    
+//                                     Option two can be something else and selecting it will deselect option one
+//                                 </label>
+//                             </div>
+
+//                             <div class="mv2 f6">
+//                             <input type="radio" name="option" id="optionsRadios3" value="option3" />
+//                                 <label className="ml3" for="option3">                                    
+//                                     Option two can be something else and selecting it will deselect option one
+//                                 </label>
+//                             </div>
+
+//                             <div class="mv2 f6">
+//                             <input type="radio" name="option" id="optionsRadios4" value="option4" />
+//                                 <label className="ml3" for="option4">                                    
+//                                     Option two can be something else and selecting it will deselect option one
+//                                 </label>
+//                             </div>
+                        
+//                         </div> 
+                            
+                
+                
+//                 </div>
+
+//             </form>
