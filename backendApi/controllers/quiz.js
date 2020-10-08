@@ -7,15 +7,18 @@ const db = require("../models");
 
 const getQuestions = (req, res) => {
 
-    for(var i=1; i<11; i++)
-    {
-        db.quiz.findByPk(i)
+    // if Deleted from DB id does not aut reset
+   
+   
+    // for(var i=1; i<11; i++)
+    //{
+        db.quiz.findByPk(6)
           .then(result => {
             res.status(200).json(result);
           }).catch(err => {
             res.status(404).json(err);
           });
-    }
+    //}
 
 }
 

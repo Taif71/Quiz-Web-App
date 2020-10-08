@@ -3,7 +3,7 @@ const express = require('express');
 
 const router = express.Router();
 // const bcrypt = require('bcryptjs');
-const db = require('../models');
+//const db = require('../models');
 
 
 
@@ -11,17 +11,7 @@ const adminController = require('../controllers/admin');
 const leadboardController = require('../controllers/leadboard');
 const quizController = require('../controllers/quiz');
 
-// Test route for Home API
-// router.get('/', (req,res) => {
-//     return db.Contact.findAll() // specify the model name's first letter Capital. ex; Contact
-//              .then(res => {
-//                  res.send(res);
-//              })
-//              .catch(err => {
-//                  console.log('There was an error querying strings', JSON.stringify(err))
-//                  return res.send(err);
-//              });
-// });
+
 
 // Admin API
 router.post('/admin/login', adminController.handleAdminLogin);

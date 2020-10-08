@@ -7,16 +7,67 @@ import Tilt from 'react-parallax-tilt';
 
 
 import './question.styles.css';
-
-// import QuizBg from '../QuizBg/QuizBg.component';
-
-const dummy = "Hello This is the best question?";
-const dummy2 = 3;
-// dummy data
-var cars = [1,2,3,4,5];
+import { Component } from 'react';
 
 
-const Question = () => {
+
+
+
+
+ 
+
+class Question extends Component {
+    constructor() {
+        super();
+        this.state = {
+            questionId: [],
+            userName: '',
+            ans1: null,
+            ans2: null,
+            ans3: null,
+            ans4: null,
+            ans5: null,
+            ans6: null,
+            ans7: null,
+            ans8: null,
+            ans9: null,
+            ans10: null,
+            score: null,
+            time: 600,
+            stateData: ''
+
+        }
+
+    }
+
+    async componentDidMount() {
+        const getData = await fetch('/api/quiz/questions');
+        const data = getData.json();
+
+        this.setState({
+            stateData: data
+        });
+        
+    }
+
+    submitForm = async () => {
+        const response = await fetch('/api/quiz/submit', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+               questionId: 1, 
+               
+   
+            })
+        })
+    }
+   
+    onChange = ()  => {
+        
+    }
+    
+   
+   render() {
     return (
         <Tilt             
             tiltMaxAngleX= "1"
@@ -34,30 +85,31 @@ const Question = () => {
                         
                         
               <form 
+              submit={this.submitForm}
               className="" 
               id="quiz"
               action="/" 
               method="post"
               >
-                 {   cars.map((res) => (
+                 {   this.state.stateData.map((res) => (
                         <div className="ml7 center question-border">
-                            <h3 className="tl">Q{dummy2}: {dummy}</h3><br />
+                            <h3 className="tl">Q{res.id}: {res.questions}</h3><br />
                             <div className=""><br />
                             <h4 className="">Answers:</h4>
                             </div>
                                 
                             <div className="fl pb5">
-                                <input type="radio" id="opt1" name="option" />                
-                                <label className="ml2" for="option">The answer is 1</label>
+                                <input type="radio" id="opt1" name="option" value={this.onChange} />                
+                                <label className="ml2" for="option">{res.opt1}</label>
                                 <br />
-                                <input type="radio" id="opt2" name="option" />                
-                                <label className="ml2" for="option">The answer is 2</label>
+                                <input type="radio" id="opt2" name="option" value={this.onChange}/>                
+                                <label className="ml2" for="option">{res.opt2}</label>
                                 <br />
-                                <input type="radio" id="opt3" name="option" />                
-                                <label className="ml2" for="option">The answer is 3</label>
+                                <input type="radio" id="opt3" name="option" value={this.onChange}/>                
+                                <label className="ml2" for="option">{res.opt3}</label>
                                 <br />
-                                <input type="radio" id="opt4" name="option" />               
-                                <label className="ml2" for="option">The answer is 4</label>
+                                <input type="radio" id="opt4" name="option" value={this.onChange}/>               
+                                <label className="ml2" for="option">{res.opt4}</label>
                                 <br /> 
                             </div>
                         </div>
@@ -69,11 +121,8 @@ const Question = () => {
                             form="quiz"
                             type="submit"
                             className=" mt3 f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-black" 
-                            href="#0">Button Text</button>
-                
-                
-                   
-                
+                            href="#0">Button Text</button>                                
+                                   
             </div>
             
                             
@@ -83,6 +132,7 @@ const Question = () => {
 
             
     );
+    } 
 }
 
 export default Question;

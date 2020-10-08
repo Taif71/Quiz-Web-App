@@ -9,6 +9,28 @@ const db = require('../models');
 // });
 const handleAdminLogin = (req, res) => {
 
+    const { adminName, password } = req.body;
+    if (!adminName || !password) {
+        return res.status(400).json('incorrect form submission');
+    }
+
+    db.admin.findOne({
+        where: { adminName: adminName }
+    }).then(data => {
+        //const isValid = data.password;
+        
+        if(data.password === password){
+            const isAuth = true;
+            return res.status(200).json({isAuth});
+        } else {
+            const isAuth = false;
+            return res.status(400).json('incorrect password');
+        }
+    }).catch(err => {
+
+    });
+
+
 }
 
 const handleAdminRegistration = (req, res) => {
@@ -52,6 +74,8 @@ const submitQuestions = (req, res) => {
                  res.status(404).json(err);
              });
 }
+
+
 
 const updateQuestion = (req, res) => {
     const { Id, Question } = req.body;
