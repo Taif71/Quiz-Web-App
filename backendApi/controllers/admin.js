@@ -8,7 +8,7 @@ const db = require('../models');
 //     });
 // });
 const handleAdminLogin = (req, res) => {
-
+    let isAuth;
     const { adminName, password } = req.body;
     if (!adminName || !password) {
         return res.status(400).json('incorrect form submission');
@@ -20,14 +20,14 @@ const handleAdminLogin = (req, res) => {
         //const isValid = data.password;
         
         if(data.password === password){
-            const isAuth = true;
+             isAuth = true;
             return res.status(200).json({isAuth});
         } else {
-            const isAuth = false;
-            return res.status(400).json('incorrect password');
+             isAuth = false;
+            return res.status(400).json({isAuth});
         }
     }).catch(err => {
-
+        return res.status(400).json(err);
     });
 
 
@@ -90,7 +90,7 @@ const updateQuestion = (req, res) => {
                 
     ).then(result => {
         // console.log(result);       
-        res.status(200).json(result + ' posted to quiz table');
+        res.status(200).json(result);
     }).catch(err => {
         // console.log(err);
         res.status(404).json(err);
@@ -116,7 +116,7 @@ const updateOption = (req, res) => {
                 }
             }
         ).then(result => {
-            res.status(200).json(result + ' posted to opt1 column');
+            res.status(200).json(result);
         }).catch(err => {
             res.status(404).json(err);
         })
@@ -129,7 +129,7 @@ const updateOption = (req, res) => {
                 }
             }
         ).then(result => {
-            res.status(200).json(result + ' posted to opt2 column');
+            res.status(200).json(result);
         }).catch(err => {
             res.status(404).json(err);
         });
@@ -142,7 +142,7 @@ const updateOption = (req, res) => {
                 }
             }
         ).then(result => {
-            res.status(200).json(result + ' posted to opt3 column');
+            res.status(200).json(result);
         }).catch(err => {
             res.status(404).json(err);
         });
@@ -155,7 +155,7 @@ const updateOption = (req, res) => {
                 }
             }
         ).then(result => {
-            res.status(200).json(result + ' posted to opt4 column');
+            res.status(200).json(result);
         }).catch(err => {
             res.status(404).json(err);
         });
@@ -190,10 +190,16 @@ const updateSolution = (req,res) => {
 const deleteQuestions = (req, res) => {
     const { deleteId } = req.body;
 
+    var idExist = db.quiz.findByPk({ id: deleteId});
+    if(!idExist) {
+        return res.status(404).json('The Question does not exist!');
+    }
     db.quiz.destroy({
         where: {
             id: deleteId
-        }
+        },
+        truncate: true, 
+        restartIdentity: true         
     }).then(result => {
         res.status(200).json('You have deleted this question');
     }).catch(err => {

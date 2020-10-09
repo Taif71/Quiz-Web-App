@@ -14,13 +14,13 @@ const quizController = require('../controllers/quiz');
 
 
 // Admin API
-router.post('/admin/login', adminController.handleAdminLogin);
-router.post('/admin/register', adminController.handleAdminRegistration);
-router.post('/admin/submit', adminController.submitQuestions);
-router.put('/admin/updateQuestion', adminController.updateQuestion);
-router.put('/admin/updateOption', adminController.updateOption);
-router.put('/admin/updateSolution', adminController.updateSolution);
-router.delete('/admin/delete', adminController.deleteQuestions);
+router.post('/admin/login', adminController.handleAdminLogin); // JWT implementation + bcrypt
+router.post('/admin/register', adminController.handleAdminRegistration); // JWT implementation
+router.post('/admin/submit', adminController.submitQuestions); // require work
+router.put('/admin/updateQuestion', adminController.updateQuestion); // done
+router.put('/admin/updateOption', adminController.updateOption); //done
+router.put('/admin/updateSolution', adminController.updateSolution); //done
+router.delete('/admin/delete', adminController.deleteQuestions); //done
 
 
 //Leadboard API

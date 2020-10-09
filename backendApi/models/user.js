@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     time: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'users',
+    modelName: 'user',
   });
   return users;
 };
