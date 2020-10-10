@@ -1,24 +1,21 @@
 const db = require("../models");
 
 
-// const handleUsers = (req, res) => {
-
-// }
 
 const getQuestions = (req, res) => {
 
-    // if Deleted from DB id does not aut reset
+    // if Deleted from DB id does not aut reset 
    
-   
-    // for(var i=1; i<11; i++)
-    //{
-        db.quiz.findByPk(6)
-          .then(result => {
-            res.status(200).json(result);
-          }).catch(err => {
-            res.status(404).json(err);
-          });
-    //}
+   // getting all th questions data from the database table quiz
+
+   db.quiz.findAll({
+       attributes: ['id', 'questions', 'opt1', 'opt2','opt3','opt4', 'solution']
+   }).then(result => {
+       res.status(200).json(result);
+   }).catch(err => {
+       res.status(404).json(err);
+   });
+  
 
 }
 

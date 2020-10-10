@@ -1,6 +1,9 @@
 import React from 'react';
 import './form.styles.css';
 
+
+const isAuthenticated;
+
 class Form extends React.Component  {
 
     constructor(props) {
@@ -16,37 +19,35 @@ class Form extends React.Component  {
     }
 
     handleSubmit = (event) => {
-        alert('A form was submitted: ' + this.state);
-    
+        //alert('A form was submitted: ' + this.state);
+        this.setState({
+            name: 
+        });
         fetch('/api/admin/login', {
             method: 'POST',
             // We convert the React state to JSON and send it as the POST body
             body: JSON.stringify(this.state)
-          }).then(function(response) {
+          }).then(response =>  {
             console.log(response)
-            return response.json();
+            
+            if(response.isAuth === true){
+                isAuthenticated = true;
+            } else if( response.isAuth === false ){
+                isAuthenticated = false;
+            }
 
            
           });
 
 
-        // using AJAX
-        // var xhttp = new XMLHttpRequest();
-        // xhttp.onreadystatechange = function() {
-        //     if (this.readyState == 4 && this.status == 200) {
-            
-        //     }
-        // };
-        // xhttp.open("POST", "ajax_info.txt", true);
-        // xhttp.send();
-    
-        // event.preventDefault();
+       
     }
 
     render() {
     return (
         <div className="ba b--black signin w-50 mh7 center">
             <main className="pa4 black-80">
+
             <form className="measure center" onSubmit={this.handleSubmit}>
                 <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                 <legend className="f4 fw6 ph0 mh0">Sign In</legend>
@@ -63,9 +64,9 @@ class Form extends React.Component  {
                 
                 <div className="lh-copy mt7 mr2">
                     <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" />
-                </div>
-                
+                </div>                
             </form>
+
             </main>                
         </div>
         
@@ -76,3 +77,4 @@ class Form extends React.Component  {
 
 
  export default Form;
+ export default isAuthenticated;

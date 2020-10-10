@@ -1,13 +1,13 @@
 const db = require("../models");
-const { response } = require("express");
+
 
 
 
 
 const userRanks =  (req, res) => {
     
-        var x = [];
-        var ranked = [];
+        var x = []; // temporary variable to use inside the algo
+        var ranked = []; // array variable that will be used as a container for the data that will be sent to the client
 
         // fetching out data from the database table user with attributes userName,Score, Time
         db.user.findAll({
@@ -18,12 +18,14 @@ const userRanks =  (req, res) => {
           for (let i=0; i<result.length; i++)
           {
             x.push(result[i].score);
-          }
-          
+          }          
           x.sort();
           x.reverse(); // reversed the values for ease of compare for future
 
 
+
+          // we're using 3 loops O(n^3) to do as following:
+          /* 1. */
           for(let j=0; j<x.length; j++){
             for(let k=0;k<result.length; k++)
             {
