@@ -8,7 +8,7 @@ const userRanks =  (req, res) => {
     
         var x = []; // temporary variable to use inside the algo
         var ranked = []; // array variable that will be used as a container for the data that will be sent to the client
-
+        var rank = 0;
         // fetching out data from the database table user with attributes userName,Score, Time
         db.user.findAll({
           attributes: ['userName','score', 'time']
@@ -36,13 +36,18 @@ const userRanks =  (req, res) => {
                       {
                         if(result[m].time > result[k].time)
                         {
+                          rank++;
+                          result[k].rank = rank;
                           ranked.push(result[k]);
                           //res.status(200).json(ranked);
                         } else if(result[m].time < result[k].time) {
-                            
+                           rank++; 
+                           result[m].rank = rank;
                           ranked.push(result[m]);
                           //res.status(200).json(ranked);
                         } else {
+                          rank++;
+                          result[k].rank = rank;
                           ranked.push(result[k]);
                         }
                       }
@@ -51,6 +56,8 @@ const userRanks =  (req, res) => {
               } 
               else {
                 if(x[j] === result[k].score){
+                  rank++;
+                  result[k].rank = rank;
                   ranked.push(result[k]);
                   break;
                 }
