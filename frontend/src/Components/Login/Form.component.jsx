@@ -2,7 +2,7 @@ import React from 'react';
 import './form.styles.css';
 
 
-const isAuthenticated;
+//const isAuthenticated;
 
 class Form extends React.Component  {
 
@@ -19,25 +19,25 @@ class Form extends React.Component  {
     }
 
     handleSubmit = (event) => {
-        //alert('A form was submitted: ' + this.state);
-        this.setState({
-            name: 
-        });
-        fetch('/api/admin/login', {
-            method: 'POST',
-            // We convert the React state to JSON and send it as the POST body
-            body: JSON.stringify(this.state)
-          }).then(response =>  {
-            console.log(response)
+        // //alert('A form was submitted: ' + this.state);
+        // this.setState({
+        //     name: 
+        // });
+        // fetch('/api/admin/login', {
+        //     method: 'POST',
+        //     // We convert the React state to JSON and send it as the POST body
+        //     body: JSON.stringify(this.state)
+        //   }).then(response =>  {
+        //     console.log(response)
             
-            if(response.isAuth === true){
-                isAuthenticated = true;
-            } else if( response.isAuth === false ){
-                isAuthenticated = false;
-            }
+        //     if(response.isAuth === true){
+        //         isAuthenticated = true;
+        //     } else if( response.isAuth === false ){
+        //         isAuthenticated = false;
+        //     }
 
            
-          });
+        //   });
 
 
        
@@ -77,4 +77,4 @@ class Form extends React.Component  {
 
 
  export default Form;
- export default isAuthenticated;
+ //export default isAuthenticated;

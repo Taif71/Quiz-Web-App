@@ -10,7 +10,9 @@ import AdminPage from './pages/adminpage/adminpage.component';
 import QuizPage from './pages/quizpage/quizpage.component';
 import LeadBoard from './pages/leadboard/leadboard.component';
 import ContactPage from './pages/contact/contact.component';
-import Login from './Components/Login/Login.component';
+import AdminDashboard from './pages/admin-dashboard/admin-dashboard.component';
+
+
 //importing components
 import Navbar from './Components/Navbar/Navbar.component';
 // import Option from './Components/Option/Option.component';
@@ -34,9 +36,10 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={HomePage} />
             <Route exact path='/quiz' component={QuizPage} />
-            <Route exact path='/login' component={Login} />
+            <Route exact path='/login' component={AdminPage} />
             <Route path='/leadboard' component={LeadBoard}/>
             <Route path='/contact' component={ContactPage}/>
+            <Route path='/admin/dashboard' component={AdminDashboard}/>
           </Switch>          
           
         </div>

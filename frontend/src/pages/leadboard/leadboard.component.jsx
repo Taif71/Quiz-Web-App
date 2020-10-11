@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Particles from 'react-particles-js';
 import './leadboard.styles.css';
 
 import Table from '../../Components/Table/Table.component';
+
 
 
 
@@ -32,22 +33,23 @@ const particlesOptions = {
     }  
 } 
 
-const LeadBoard = () => {
-
+class LeadBoard extends Component {
+  
+  render() {
     return (
         
         <div>
-        <Particles
-        className='particles'
-        params={particlesOptions}
-        />
-      
-        
-        <Table />
-        <br />
-        <br />
+          <Particles
+          className='particles'
+          params={particlesOptions}
+          />                  
+          <Table />         
+          <br />
+          <br />
         </div>
     );
+  }
+
 }
 
 export default LeadBoard;
