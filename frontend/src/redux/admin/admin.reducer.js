@@ -1,8 +1,9 @@
-import { AdminActionType } from './admin.types';
+
 import { AdminActionTypes } from './admin.types';
 
 const INITIAL_STATE = {
-    qNum: 5
+    qNum: 5,
+    currentAdmin: false
 };
 
 const adminReducer = (state = INITIAL_STATE, action) => {
@@ -12,6 +13,11 @@ const adminReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 qNum: action.payload
             };
+        case AdminActionTypes.SET_CURRENT_ADMIN:
+            return {
+                ...state,
+                admin: action.payload
+            }
         default: 
             return state;
     }

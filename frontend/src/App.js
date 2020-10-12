@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './App.css';
 
@@ -40,8 +41,26 @@ class App extends Component {
             <Route exact path='/login' component={AdminPage} />
             <Route path='/leadboard' component={LeadBoard}/>
             <Route path='/contact' component={ContactPage}/>
-            <Route path='/admin/dashboard' component={AdminDashboard}/>
-            <Route path='/admin/question-submit' component={AdminQuestionPage} />
+            <Route 
+                  path='/admin/dashboard'                   
+                  render={() => 
+                    this.props.currentAdmin ? (
+                      <AdminDashboard />
+                    ) : (
+                      <Redirect to='/login' />
+                    )
+                  }
+            />
+            <Route 
+                  path='/admin/question-submit' 
+                  render={() => 
+                    this.props.currentAdmin ? (
+                      <AdminQuestionPage />
+                    ) : (
+                      <Redirect to='/login' />
+                    )
+                  }
+            />
           </Switch>          
           
         </div>
@@ -50,4 +69,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  currentAdmin: state.admin.currentAdmin
+})
+
+export default connect(mapStateToProps)(App);
