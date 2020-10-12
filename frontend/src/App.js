@@ -11,6 +11,7 @@ import QuizPage from './pages/quizpage/quizpage.component';
 import LeadBoard from './pages/leadboard/leadboard.component';
 import ContactPage from './pages/contact/contact.component';
 import AdminDashboard from './pages/admin-dashboard/admin-dashboard.component';
+import AdminQuestionPage from './pages/admin-dashboard/admin-question-page.component';
 
 
 //importing components
@@ -40,6 +41,7 @@ class App extends Component {
             <Route path='/leadboard' component={LeadBoard}/>
             <Route path='/contact' component={ContactPage}/>
             <Route path='/admin/dashboard' component={AdminDashboard}/>
+            <Route path='/admin/question-submit' component={AdminQuestionPage} />
           </Switch>          
           
         </div>

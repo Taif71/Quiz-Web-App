@@ -1,9 +1,9 @@
-import { combineRedurs } from 'redux';
+import { combineReducers } from 'redux';
 
-import adminReducer from './admin/admin-reducer';
+import adminReducer from './admin/admin.reducer';
 
 
-const adminData = combineRedurs({
+const adminData = combineReducers({
     admin: adminReducer
 });
 

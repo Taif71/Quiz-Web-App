@@ -1,13 +1,13 @@
 import React from 'react';
 
-import './addquestion.styles.css';
+// import './addquestion.styles.css';
 
-const AddQuestion = () => {
+const submitQuestion = () => {
     return (
-        <div className="add-question">
+        <div className="ma4">
 
             <section className="ba b--light-blue ba shadow-1 mw5 mw7-ns center bg-light-grey pa3 ph5-ns">
-            <h1 className="mt0 hover-dark-red">Question 1</h1>
+            <h1 className="mt0 hover-dark-red">Question</h1>
 
             <form className="pa4 black-80">
             
@@ -63,6 +63,8 @@ const AddQuestion = () => {
                 </div>
             
             </fieldset>
+
+            <button className="f6 link dim br3 ph3 pv2 mb2 dib white bg-black pointer">Submit</button>
             </form>
 
             </section>
@@ -71,4 +73,4 @@ const AddQuestion = () => {
     );
 }
 
-export default AddQuestion;
+export default submitQuestion;

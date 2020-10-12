@@ -6,6 +6,8 @@ import fetchData from './leadboard.js';
 const Table = () => {
     
     
+
+    
     return (
     <div>
         <div>

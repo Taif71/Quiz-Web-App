@@ -1,8 +1,9 @@
 
 import React from 'react';
+import { connect } from 'react-redux';
 
-
-import AddQuestion from '../../Components/AddQuestion/AddQuestion.component';
+import QuestionCrumb from '../../Components/Question-crumb/Question-crumb.component';
+//import AddQuestion from '../../Components/AddQuestion/AddQuestion.component';
 class AdminDashboard extends React.Component {
 
     render() {
@@ -23,13 +24,24 @@ class AdminDashboard extends React.Component {
                 </div>
                 </article>
 
+                <div className="">
+                    <hr className="line" />
+                </div>
 
-                <AddQuestion /><br /><br />
-                <AddQuestion /><br /><br />
-                <AddQuestion /><br /><br />
-                <AddQuestion /><br /><br />
-                <AddQuestion /><br /><br />
+                <h2>Add,Edit,Delete questions to be viewed publicly:</h2>
+                <span>You can only add a maximum of 10 questions</span>
+                <QuestionCrumb />
+                <QuestionCrumb />
+                <QuestionCrumb />
+                <QuestionCrumb />
+                <QuestionCrumb />
 
+                {/* we will shot a loop here based on the add-question button to add upto 5 more QuestionCrumbs */}
+
+
+
+                <button className="f6 link dim ba bw1 ph3 pv2 mb2 dib bg-black white pointer">Add Question</button>
+                <br /><br /><br />
 
 
             </div>
@@ -37,4 +49,8 @@ class AdminDashboard extends React.Component {
     }
 }
 
-export default AdminDashboard;
+const mapDispatchToProps = () => {
+
+}
+
+export default connect(null, mapDispatchToProps)(AdminDashboard);
