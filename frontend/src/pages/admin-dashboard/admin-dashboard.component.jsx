@@ -50,22 +50,24 @@ class AdminDashboard extends React.Component {
                 <h2>Add,Edit,Delete questions to be viewed publicly:</h2>
                 <span>You can only add a maximum of 10 questions</span>
 
-                {/* {
-                    this.props.qNum.map(item => (
-                        <QuestionCrumb /> 
-                    ))
-                } */}
-                 
-                {/* <QuestionCrumb />
-                <QuestionCrumb />
-                <QuestionCrumb />
-                <QuestionCrumb /> */}
+               
+                <QuestionCrumb id={1}/>
+                <QuestionCrumb id={2}/>
+                <QuestionCrumb id={3}/>
+                <QuestionCrumb id={4}/>
+                <QuestionCrumb id={5}/>
 
+
+                <QuestionCrumb id={6}/>
+                <QuestionCrumb id={7}/>
+                <QuestionCrumb id={8}/>
+                <QuestionCrumb id={9}/>
+                <QuestionCrumb id={10}/>
                 {/* we will shot a loop here based on the add-question button to add upto 5 more QuestionCrumbs */}
 
 
 
-                <button className="f6 dim ba bw1 ph3 pv2 mb2 dib bg-black white pointer" onClick={this.handleAddQuestion}>Add Question</button>
+                {/* <button className="f6 dim ba bw1 ph3 pv2 mb2 dib bg-black white pointer" onClick={this.handleAddQuestion}>Add Question</button> */}
                 <br /><br /><br />
 
 

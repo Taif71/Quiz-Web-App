@@ -3,7 +3,9 @@ import { AdminActionTypes } from './admin.types';
 
 const INITIAL_STATE = {
     qNum: 5,
-    currentAdmin: false
+    currentAdmin: null,
+    adminName: null,
+    password: null
 };
 
 const adminReducer = (state = INITIAL_STATE, action) => {
@@ -18,6 +20,16 @@ const adminReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 admin: action.payload
             }
+        case AdminActionTypes.SET_CURRENT_ADMIN_NAME:
+            return {
+                ...state,
+                adminName: action.payload
+            }
+        case AdminActionTypes.SET_CURRENT_PASSWORD:
+            return {
+                ...state,
+                password: action.payload
+            }    
         default: 
             return state;
     }

@@ -71,6 +71,6 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   currentAdmin: state.admin.currentAdmin
-})
+});
 
 export default connect(mapStateToProps)(App);
