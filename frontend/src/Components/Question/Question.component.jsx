@@ -17,56 +17,7 @@ import { Component } from 'react';
  
 
 class Question extends Component {
-    constructor() {
-        super();
-        this.state = {
-            questionId: [],
-            userName: '',
-            ans1: null,
-            ans2: null,
-            ans3: null,
-            ans4: null,
-            ans5: null,
-            ans6: null,
-            ans7: null,
-            ans8: null,
-            ans9: null,
-            ans10: null,
-            score: null,
-            time: 600,
-            stateData: ''
 
-        }
-
-    }
-
-    async componentDidMount() {
-        const getData = await fetch('/api/quiz/questions');
-        const data = getData.json();
-
-        this.setState({
-            stateData: data
-        });
-        
-    }
-
-    submitForm = async () => {
-        const response = await fetch('/api/quiz/submit', {
-            method: 'post',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-               questionId: 1, 
-               
-   
-            })
-        })
-    }
-   
-    onChange = ()  => {
-        
-    }
-    
-   
    render() {
     return (
         <Tilt             
@@ -90,33 +41,31 @@ class Question extends Component {
               id="quiz"
               action="/" 
               method="post"
-              >
-                 {   this.state.stateData.map((res) => (
+              >                 
                         <div className="ml7 center question-border">
-                            <h3 className="tl">Q{res.id}: {res.questions}</h3><br />
+                            <h3 className="tl">Question</h3><br />
                             <div className=""><br />
                             <h4 className="">Answers:</h4>
                             </div>
                                 
                             <div className="fl pb5">
-                                <input type="radio" id="opt1" name="option" value={this.onChange} />                
-                                <label className="ml2" for="option">{res.opt1}</label>
+                                <input type="radio" id="opt1" name="option" />                
+                                <label className="ml2" for="option"></label>
                                 <br />
-                                <input type="radio" id="opt2" name="option" value={this.onChange}/>                
-                                <label className="ml2" for="option">{res.opt2}</label>
+                                <input type="radio" id="opt2" name="option" />                
+                                <label className="ml2" for="option"></label>
                                 <br />
-                                <input type="radio" id="opt3" name="option" value={this.onChange}/>                
-                                <label className="ml2" for="option">{res.opt3}</label>
+                                <input type="radio" id="opt3" name="option" />                
+                                <label className="ml2" for="option"></label>
                                 <br />
-                                <input type="radio" id="opt4" name="option" value={this.onChange}/>               
-                                <label className="ml2" for="option">{res.opt4}</label>
+                                <input type="radio" id="opt4" name="option" />               
+                                <label className="ml2" for="option"></label>
                                 <br /> 
                             </div>
                         </div>
-
-                        ))}           
+                                  
                         
-                        </form>
+                </form>
                         <button 
                             form="quiz"
                             type="submit"

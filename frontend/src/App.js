@@ -38,14 +38,24 @@ class App extends Component {
 
           <Switch>
             <Route exact path='/' component={HomePage} />
-            <Route exact path='/quiz' component={QuizPage} />
+            <Route 
+                   exact 
+                   path='/quiz' 
+                   render={() => 
+                        this.props.userName ? (
+                         <QuizPage /> 
+                         ) : ( 
+                           <Redirect to='/' />
+                           ) 
+                        }                   
+            />
             <Route exact path='/login' component={AdminPage} />
             <Route path='/leadboard' component={LeadBoard}/>
             <Route path='/contact' component={ContactPage}/>
             <Route 
                   path='/admin/dashboard'                   
                   render={() => 
-                    this.props.currentAdmin ? (
+                    this.props.currentUser ? (
                       <AdminDashboard />
                     ) : (
                       <Redirect to='/login' />
@@ -72,7 +82,8 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentAdmin: state.admin.currentAdmin
+  currentAdmin: state.admin.currentAdmin,
+  userName: state.user.userName
 });
 
 export default connect(mapStateToProps)(App);

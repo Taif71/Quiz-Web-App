@@ -1,9 +1,19 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Particles from 'react-particles-js';
 
 import './username.styles.css';
 
+
+// import QuizPage from '../pages/quizpage/quizpage.component';
+
+import { setCurrentUser } from '../../redux/user/user.actions';
+
+
+//import QuizPage from '../../pages/quizpage/quizpage.component';
+//import HomePage from '../homepage/homepage.component';
 
 
 const particlesOptions = {
@@ -32,6 +42,11 @@ const particlesOptions = {
 } 
 class UserNamePage extends Component{
     
+
+    handleChange = (e) => {
+        this.props.setCurrentUser({ userName: e.target.value});
+    }
+
     render() {        
     return (
         <div className="ba b--black signin w-50 mh7 center">
@@ -55,18 +70,31 @@ class UserNamePage extends Component{
 
             <main className="pa4 black-80">
 
-            <form className="measure center">
+            <div className="measure center" >
                 <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                     <legend className="f4 fw6 ph0 mh0">Enter your user name</legend>
                     <div className="mt3">
-                        <label className="db fw6 lh-copy f6" for="email-address">User Name</label>
-                        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="admin"  id="adminName" />
+                        <label className="db fw6 lh-copy f6">User Name</label>
+                        <input 
+                            className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+                            type="text" 
+                            name="user"  
+                            id="userName" 
+                            onChange={this.handleChange}
+                            />
                     </div>
-                    <input className="custom-margin b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit" />                               
+                    <Link to='/quiz'>
+                        <button 
+                            className="custom-margin b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"                                                                          
+                        >
+                        Proceed
+                        </button> 
+                    </Link>
+                    
                 </fieldset>
                 
                                 
-            </form>
+            </div>
 
             </main>                
         </div>
@@ -75,4 +103,7 @@ class UserNamePage extends Component{
 
 }
 
-export default UserNamePage;
+const mapDispatchToProps = dispatch => ({
+    setCurrentUser: user => dispatch(setCurrentUser(user))
+});
+export default connect(null, mapDispatchToProps)(UserNamePage);
