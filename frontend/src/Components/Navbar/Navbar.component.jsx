@@ -13,10 +13,10 @@ const Navbar = () => {
             
             <nav className="f6 fw7 ttu tracked">
                 <Link className="link dim white dib2 mr3" to="/" title="Home">Home</Link>
-                <Link className="link dim white dib2 mr3" to="/quiz" title="About">Quiz</Link>
-                <Link className="link dim white dib2 mr3" to="/admin" title="Store">Login</Link>            
-                <Link className="link dim white dib2 mr3" to="/contact" title="Contact">Contact</Link>
+                <Link className="link dim white dib2 mr3" to="/quiz/username" title="About">Quiz</Link>                         
                 <Link className="link dim white dib2 mr3" to="/leadboard" title="Store">Leadboard</Link>
+                <Link className="link dim white dib2 mr3" to="/contact" title="Contact">Contact</Link>                
+                <Link className="link dim white dib2 mr3" to="/login" title="Store">Login</Link>   
             </nav>
             </header>
         </div>

@@ -13,6 +13,7 @@ import LeadBoard from './pages/leadboard/leadboard.component';
 import ContactPage from './pages/contact/contact.component';
 import AdminDashboard from './pages/admin-dashboard/admin-dashboard.component';
 import AdminQuestionPage from './pages/admin-dashboard/admin-question-page.component';
+import UserNamePage from './pages/UserNamePage/username.component';
 
 
 //importing components
@@ -61,6 +62,7 @@ class App extends Component {
                     )
                   }
             />
+            <Route exact path='/quiz/username' component={UserNamePage}/>
           </Switch>          
           
         </div>
